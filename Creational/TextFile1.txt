@@ -1,0 +1,1 @@
+﻿Builder pattern builds a complex object by using a step by step approach. Builder interface defines the steps to build the final object. This builder is independent of the objects creation process. A class that is known as Director, controls the object creation process.
