@@ -1,21 +1,26 @@
-﻿using DesignPatterns.Creational.Build;
+﻿using DesignPatterns.Creational.Build1;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DesignPatterns
 {
-  
+
   class Program
   {
-    
-    public static void Main(string[] args)
+    static void Main(string[] args)
     {
-      VehicleCreator vehicleCreator = new VehicleCreator(new CarBuilder());
+      Category category = new Category { CategoryId = 1, CategoryName = "Category One" };
+      List<Category> categories = new List<Category>();
+      categories.Add(category);
 
-      var vehicle = vehicleCreator.CreateVehicle();
-      Console.WriteLine(vehicle.Engine);
-      Console.WriteLine(vehicle.Transmission);
+      Product product = ProductBuilder.CreateBuilder()
+        .AddId(1)
+        .AddName("Product name")
+        .AddDescription("Description")
+        .AddCategories(categories);
+
+      Console.WriteLine($"{product.Id}, {product.Name}");
     }
   }
 }
